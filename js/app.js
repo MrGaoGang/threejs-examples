@@ -51,9 +51,9 @@ function initThree() {
   controls.minZoom = 0.5;
   controls.maxZoom = 2;
 
-  controls.addEventListener('change',function(e){
+  controls.addEventListener("change", function (e) {
     // console.log(e.target.);
-  })
+  });
   // deviceControls = new THREE.DeviceOrientationControls(camera);
   //   controls.autoRotateSpeed = 1;
   //   controls.autoRotate = true;
@@ -98,6 +98,14 @@ function useBox() {
 }
 
 function useSphere() {
+//   SphereGeometry(radius : Float, widthSegments : Integer, heightSegments : Integer, phiStart : Float, phiLength : Float, thetaStart : Float, thetaLength : Float)
+// radius — 球体半径，默认为1。
+// widthSegments — 水平分段数（沿着经线分段），最小值为3，默认值为8。
+// heightSegments — 垂直分段数（沿着纬线分段），最小值为2，默认值为6。
+// phiStart — 指定水平（经线）起始角度，默认值为0。。
+// phiLength — 指定水平（经线）扫描角度的大小，默认值为 Math.PI * 2。
+// thetaStart — 指定垂直（纬线）起始角度，默认值为0。
+// thetaLength — 指定垂直（纬线）扫描角度大小，默认值为 Math.PI。
   var sphereGeometry = new THREE.SphereGeometry(1, 50, 50);
   sphereGeometry.scale(-1, 1, 1);
   // sphereGeometry.rotateY(180*Math.PI/180);
@@ -154,14 +162,13 @@ function initPoints() {
       mouse.y = -(event.clientY / document.body.clientHeight) * 2 + 1;
 
       raycaster.setFromCamera(mouse, camera);
-     
+
       var intersects = raycaster.intersectObjects(poiObjects);
       if (intersects.length > 0) {
         const p = intersects[0].point;
-        console.log( intersects[0].object.detail);
-        console.log("点击的点",p);
+        console.log(intersects[0].object.detail);
+        console.log("点击的点", p);
         p.z = p.z > 0 ? p.z - 0.1 : p.z + 0.1;
-
 
         set_cameraPosition(p, () => {
           console.log(p);
@@ -173,6 +180,8 @@ function initPoints() {
       }
     });
 }
+
+
 
 //调整相机视角
 function set_cameraPosition(p, callback) {
