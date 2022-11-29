@@ -1,5 +1,7 @@
 # threejs 学习
 
+[使用react + threejs ](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+
 - study: 包括基础的 threejs 的使用，以及使用 TEEEN.js 动画，以及使用设备进行方向控制;
 - threejs_bmw: 是一个使用 threejs 做的在线展厅
 - telsa-car: 自己做的特斯拉汽车 demo
